@@ -1,0 +1,12 @@
+.btn-outline {
+    border: 2px white solid;
+    padding: 1em 5em 1em 5em;
+    background: transparent;
+    color: white;
+    font-size: x-large;
+}
+
+.btn-outline:hover {
+    background-color: white;
+    color: black;
+}

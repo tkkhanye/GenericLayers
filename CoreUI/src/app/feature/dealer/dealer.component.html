@@ -1,0 +1,24 @@
+<md-card class="card">
+    <md-card-title>Dealer details</md-card-title>
+    <md-input-container>
+        <input mdInput [(ngModel)]=dealer.code placeholder="Dealer Code">
+    </md-input-container>
+    <md-input-container class="full-width">
+        <input mdInput [(ngModel)]=dealer.name placeholder="Name">
+    </md-input-container>
+    <address [(model)]="dealer.physicalAddress" title="Physical Address"></address>
+    <address [(model)]="dealer.postalAddress" title="Postal Address"></address>
+
+    
+    <md-card-actions>
+        <button (click)="save()" md-button md-raised-button title='Save'>
+            <md-icon>save</md-icon>
+        </button>
+        <button (click)="save()" md-button md-raised-button title='Delete' *ngIf="!isNewRecord">
+            <md-icon>delete</md-icon>
+        </button>
+        <button routerLink="/dealer-list" md-button md-raised-button title='Back'>
+            <md-icon>keyboard_backspace</md-icon>
+        </button>
+    </md-card-actions>
+</md-card>

@@ -1,0 +1,23 @@
+<md-card class='card'>
+  <button md-fab [mdMenuTriggerFor]="menu">
+    <md-icon>more_vert</md-icon>
+  </button>
+  <md-menu #menu="mdMenu">
+    <button md-menu-item routerLink="/property"> 
+      <md-icon>description</md-icon>
+      <span>Add Property</span>
+    </button>
+  </md-menu>
+  &nbsp;
+  <md-input-container class="half-width">
+      <input mdInput placeholder="Search" [(ngModel)]="searchBy">
+  </md-input-container>  
+</md-card>
+
+  <md-card *ngFor='let model of models | filter:searchBy' class='card' [routerLink]="['/property', model.id]">
+    <md-card-title-group>
+        <img md-card-md-image src="../../assets/ic_library_books_black_24px.svg">
+        <md-card-title>{{model.numberOfBedrooms}}</md-card-title>
+        <md-card-subtitle>{{model.physicalAddress.city}}</md-card-subtitle>
+    </md-card-title-group>
+  </md-card>

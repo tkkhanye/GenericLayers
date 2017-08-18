@@ -1,0 +1,26 @@
+<md-card>
+        <md-input-container  class="full-width">
+            <input mdInput [(ngModel)]=user.firstName placeholder="First Name">
+        </md-input-container>
+        <md-input-container class="full-width">
+            <input mdInput [(ngModel)]=user.lastName placeholder="Last Name"/>
+        </md-input-container>
+        <md-input-container class="full-width">
+            <input mdInput [(ngModel)]=user.email type=email placeholder="Email"/>
+            
+        </md-input-container>
+        <md-input-container class="full-width">
+            <input mdInput [(ngModel)]=user.password type="password" placeholder="Password"/>
+        </md-input-container>
+        
+        <md-select class="full-width" *ngIf="user.establishmentType == 0" placeholder="I am an" [(ngModel)]="user.establishmentType">
+            <md-option *ngFor="let type of establishmentTypes" [value]="type.id">
+            {{type.name}}
+            </md-option>
+        </md-select>
+
+        <md-card-actions>
+
+        <button md-raised-button (click)=save()>Save</button>
+        </md-card-actions>
+</md-card>
