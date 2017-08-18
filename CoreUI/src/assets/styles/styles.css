@@ -63,7 +63,3 @@ h1 {
   min-width: 100%;
   min-height: 100%;
 }
-
-.bg-image-landing {
-  background-image: url('~/assets/images/bg-landing.jpg');
-}

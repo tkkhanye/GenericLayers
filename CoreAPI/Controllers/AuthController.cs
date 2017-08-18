@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using AutoMapper;
 using CoreAPI.DTOs;
 using CoreFacade.Concerns;
+using System.Net;
 
 namespace CoreAPI.Controllers
 {
@@ -39,7 +40,7 @@ namespace CoreAPI.Controllers
             if (_security.LoggedInUserId != Guid.Empty && _security.LoggedInUserId != null)
                 return _mapper.Map<UserDto>(_logic.GetUser(_security.LoggedInUserId));
 
-            throw new NotSupportedException();
+            throw new UnauthorizedAccessException();
         }
 
         [HttpPost("me")]

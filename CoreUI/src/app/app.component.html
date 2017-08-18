@@ -1,7 +1,6 @@
 <md-sidenav-container >
     <md-sidenav #sidenav mode="side" opened="true" *ngIf="isAuthenticated">
         <md-toolbar color="primary">
-            <img src="../assets/venbryreLogo.jpg" alt="Venbryre" width='75px'/>
             <md-toolbar-row>
                 <button md-button md-raised-button routerLink="/" color="primary">
                     Home
@@ -15,7 +14,7 @@
         </button>
         <div class="demo-toolbar">
             <button md-button routerLink="/" title="Home">
-                <h1>Core UI</h1>
+                <h1>Generic UI</h1>
             </button>
         </div>
         <span class="example-spacer"></span>
@@ -34,9 +33,10 @@
         </button>
     </md-toolbar>    
     <div class="site-container">
+        <md-progress-bar *ngIf="showLoading" mode="query"></md-progress-bar>
         <div class="site-content">
             <router-outlet></router-outlet>
         </div>
-        <md-progress-bar *ngIf="showLoading" mode="query"></md-progress-bar>
+        
     </div>
 </md-sidenav-container >
