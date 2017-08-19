@@ -1,6 +1,7 @@
 <md-sidenav-container >
-    <md-sidenav #sidenav mode="side" opened="true" *ngIf="isAuthenticated">
+    <md-sidenav #sidenav mode="side" opened="true">
         <md-toolbar color="primary">
+            <img src="../assets/venbryreLogo.jpg" alt="Venbryre" width='75px'/>
             <md-toolbar-row>
                 <button md-button md-raised-button routerLink="/" color="primary">
                     Home
@@ -8,35 +9,36 @@
             </md-toolbar-row>
         </md-toolbar>
     </md-sidenav>
-    <md-toolbar color="primary" *ngIf="isAuthenticated">
-        <button md-icon-button (click)="sidenav.toggle()">
-            <md-icon class="md-24" >menu</md-icon>
-        </button>
-        <div class="demo-toolbar">
-            <button md-button routerLink="/" title="Home">
-                <h1>Generic UI</h1>
-            </button>
-        </div>
-        <span class="example-spacer"></span>
-        <button md-button routerLink="/profile" *ngIf="isAuthenticated" title="My Profile">
-            <md-icon>account_circle</md-icon>
-        </button>
-        <button md-button (click)='logOut()' *ngIf="isAuthenticated" title="Sign Out">
-            <md-icon>settings_power</md-icon>
-        </button>
-
-        <button md-button md-fab routerLink="/sign-up" *ngIf="!isAuthenticated" title="Sign Up">
-            <md-icon>person_add</md-icon>
-        </button>
-        <button md-button routerLink="/sign-in" *ngIf="!isAuthenticated" title="Sign In">
-            <md-icon>account_circle</md-icon>
-        </button>
-    </md-toolbar>    
     <div class="site-container">
+        <md-toolbar color="primary">
+            <button md-icon-button (click)="sidenav.toggle()">
+                <md-icon class="md-24" >menu</md-icon>
+            </button>
+            <div class="demo-toolbar">
+                <button md-button routerLink="/" title="Home">
+                    <h1>VenBryre</h1>
+                </button>
+            </div>
+            
+            
+            <span class="example-spacer"></span>
+            <button md-button routerLink="/profile" *ngIf="isAuthenticated" title="My Profile">
+                <md-icon>account_circle</md-icon>
+            </button>
+            <button md-button (click)='logOut()' *ngIf="isAuthenticated" title="Sign Out">
+                <md-icon>settings_power</md-icon>
+            </button>
+
+            <button md-button md-fab routerLink="/sign-up" *ngIf="!isAuthenticated" title="Sign Up">
+                <md-icon>person_add</md-icon>
+            </button>
+            <button md-button routerLink="/sign-in" *ngIf="!isAuthenticated" title="Sign In">
+                <md-icon>account_circle</md-icon>
+            </button>
+        </md-toolbar>
         <md-progress-bar *ngIf="showLoading" mode="query"></md-progress-bar>
         <div class="site-content">
             <router-outlet></router-outlet>
         </div>
-        
     </div>
 </md-sidenav-container >

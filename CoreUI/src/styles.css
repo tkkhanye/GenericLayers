@@ -50,16 +50,3 @@ h1 {
   top: 90vh;
   right: 10px;
 }
-
-.bg-image {
-  position: fixed; 
-  top: 0; 
-  left: 0; 
-  background-size: cover;
-  z-index: -99;
-  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.6);
-	
-  /* Preserve aspect ratio */
-  min-width: 100%;
-  min-height: 100%;
-}

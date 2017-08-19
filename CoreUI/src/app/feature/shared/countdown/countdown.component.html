@@ -1,0 +1,20 @@
+
+      <md-grid-list [cols]="columnCnt" rowHeight="100px">
+
+        <md-grid-tile  [colspan]="days.cols" [rowspan]="days.rows">
+          <h3>{{days.value}} days</h3>
+        </md-grid-tile>
+
+        <md-grid-tile  [colspan]="hours.cols" [rowspan]="hours.rows">
+          <h3>{{hours.value}} hours</h3>
+        </md-grid-tile>
+
+        <md-grid-tile  [colspan]="minutes.cols" [rowspan]="minutes.rows">
+          <h3>{{minutes.value}} minutes</h3>
+        </md-grid-tile>
+
+        <md-grid-tile  [colspan]="seconds.cols" [rowspan]="seconds.rows">
+            <h3>{{seconds.value}} seconds</h3>
+        </md-grid-tile>
+
+      </md-grid-list>

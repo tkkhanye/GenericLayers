@@ -21,7 +21,6 @@ import { SignInComponent } from './feature/account/sign-in/sign-in.component';
 import { SignUpComponent } from './feature/account/sign-up/sign-up.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { ProfileComponent } from './feature/account/profile/profile.component';
-import { DeleteDialogComponent } from './dialogues/delete-dialog/delete-dialog.component';
 
 var routes = [
   {
@@ -46,8 +45,7 @@ var routes = [
     HomeComponent,
     SignUpComponent,
     FilterPipe,
-    ProfileComponent,
-    DeleteDialogComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -19,8 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "assets/styles/styles.css",
-        "assets/styles/venbryre-theme.css"
+        "styles.css",
+        "venbryre-theme.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

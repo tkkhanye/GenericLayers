@@ -15,9 +15,7 @@
         
         <md-select placeholder="I am an" [(ngModel)]="user.establishmentType"  class="full-width">
             <md-option *ngFor="let type of establishmentTypes" [value]="type.id">
-                <md-icon *ngIf="type.id == 2">business</md-icon>
-                <md-icon *ngIf="type.id == 1">person_outline</md-icon>
-            <span>{{type.name}}</span>
+                <span>{{type.name}}</span>
             </md-option>
         </md-select>
 
