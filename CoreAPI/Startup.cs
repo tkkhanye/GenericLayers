@@ -11,6 +11,21 @@ using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using System.Security.Principal;
 using CoreAPI.Configs;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication;
+
+using System;
+using System.Collections.Generic;
+using System.IO;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Net.Http.Headers;
+using Newtonsoft.Json.Linq;
 
 namespace CoreAPI
 {
@@ -43,6 +58,27 @@ namespace CoreAPI
             //    .AddEntityFrameworkStores<ApplicationDbContext>()
             //    .AddDefaultTokenProviders();
 
+            services.AddAuthentication(o =>
+            {
+                o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                o.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            });
+            //.AddJwtBearer(options =>
+            //{
+            //    options.s
+            //    //    AutomaticAuthenticate = true,
+            //    //    AutomaticChallenge = true,
+            //    //    TokenValidationParameters = new TokenValidationParameters
+            //    //    {
+            //    //        ValidateIssuerSigningKey = true,
+            //    //        IssuerSigningKey = SecurityConcern.SigningKey,
+            //    //        ValidateLifetime = true,
+            //    //        ValidateIssuer = false,
+            //    //        ValidateAudience = false
+            //    //    }
+
+            //});
+
             services.InjectRepositories();
             services.InjectBusinessLogic();
             services.InjectCrossCuttingConcerns();
@@ -66,19 +102,20 @@ namespace CoreAPI
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             //loggerFactory.AddDebug();
 
-            app.UseJwtBearerAuthentication(new JwtBearerOptions
-            {
-                AutomaticAuthenticate = true,
-                AutomaticChallenge = true,
-                TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = SecurityConcern.SigningKey,
-                    ValidateLifetime = true,
-                    ValidateIssuer = false,
-                    ValidateAudience = false
-                }
-            });
+            //app.UseJwtBearerAuthentication(new Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerOptions
+            //{
+            //    AutomaticAuthenticate = true,
+            //    AutomaticChallenge = true,
+            //    TokenValidationParameters = new TokenValidationParameters
+            //    {
+            //        ValidateIssuerSigningKey = true,
+            //        IssuerSigningKey = SecurityConcern.SigningKey,
+            //        ValidateLifetime = true,
+            //        ValidateIssuer = false,
+            //        ValidateAudience = false
+            //    }
+            //});
+            app.UseAuthentication();
 
             app.UseCors("Cors");
 

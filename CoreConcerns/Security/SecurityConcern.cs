@@ -7,7 +7,7 @@ namespace CoreConcerns.Security
 {
     public static class SecurityConcern
     {
-        public static string PassPhrase => "sam prop app really rocks!";
+        public static string PassPhrase => "you need to Sub this with your own.. hacker!";
         public static SymmetricSecurityKey SigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(SecurityConcern.PassPhrase));
     }
 }
